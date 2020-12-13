@@ -30,12 +30,12 @@ from math import floor
 
 # Constants
 CHARS={'full_top':'┃', 'half_top':'╻', 'fill':'┃'}
+Y_OFFSET = '       '
 
 def draw_hist(normed_hist_list, shape, args):
     """Takes a list of histogram bin counts and shape(min,max) of input"""
 
     # TODO make the offset configurable
-    y_offset = '       '
     y_label  = ' prop. '
 
     print("")
@@ -46,7 +46,7 @@ def draw_hist(normed_hist_list, shape, args):
         if depth == args.height/2:
             sys.stdout.write(y_label + '│')
         else:
-            sys.stdout.write(y_offset + '│')
+            sys.stdout.write(Y_OFFSET + '│')
 
         # Draw bars
         for item in normed_hist_list:
@@ -66,8 +66,8 @@ def draw_hist(normed_hist_list, shape, args):
         print("")
 
     # Draw X axis 
-    print(y_offset + '└' + "─" * (args.bins+2))
-    print(y_offset + str(shape[0]) + ' ' * (args.bins-3) + str(shape[1]))
+    print(Y_OFFSET + '└' + "─" * (args.bins+2))
+    print(Y_OFFSET + str(shape[0]) + ' ' * (args.bins-3) + str(shape[1]))
 
 
 def parse_args():
