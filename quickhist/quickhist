@@ -99,9 +99,11 @@ def main():
     draw_hist(normed_hist_list,shape,args)
 
     # Calculate stats on data
-    print('\ncount      :',len(input_list))
-    for perc in [25,50,75]:
-        print("{0}th perc. :".format(perc), percentile(input_list, perc))
+    footer = '\n' + Y_OFFSET + f'[count] {len(input_list)}'
+    for centile in [25,50,75]:
+        element = f'   [{centile}%] {percentile(input_list, centile)}'
+        footer += element
+    print(footer)
 
 
 if __name__ == '__main__':
